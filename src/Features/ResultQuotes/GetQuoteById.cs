@@ -10,10 +10,10 @@ namespace Api.Features.ResultQuotes;
 public static class GetQuoteById
 {
     // 1. Define a clear DTO for the successful response data.
-    public record QuoteResponse(int Id, string Content, string Author);
+    public sealed record QuoteResponse(int Id, string Content, string Author);
     // 2. The Query now explicitly uses the generic Result<T> type.
     // It declares it will return a Result containing a QuoteResponse on success.
-    public record Query(int id) : IRequest<Result<QuoteResponse>>;
+    public sealed record Query(int id) : IRequest<Result<QuoteResponse>>;
     
     // NEW: Add the validator class
     public class Validator : AbstractValidator<Query>
@@ -25,8 +25,7 @@ public static class GetQuoteById
                 .WithMessage("The Quote ID must be a positive number.");
         }
     }
-    // 4. The old discriminated union (HandlerResult, HappyResult, FailResult) is GONE.
-    // It is no longer needed because Result<T> replaces it.
+
     public class Handler(AppDbContext context) : IRequestHandler<Query, Result<QuoteResponse>>
     {
         // 5. The Handle method signature is updated to return the standardized Result.

@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace MinWebEfCore.Migrations
+namespace MinWebResultsClean.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250723133359_WithSeeding4")]
-    partial class WithSeeding4
+    [Migration("20250725202944_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

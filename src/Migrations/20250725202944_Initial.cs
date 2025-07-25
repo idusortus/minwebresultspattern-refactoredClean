@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace MinWebEfCore.Migrations
+namespace MinWebResultsClean.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration
